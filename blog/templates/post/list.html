@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+
+  <!-- Начало глобального div.row с двумя колонками: 
+   в левой колонке - имена авторов, в правой - блоки с текстом -->
+  <div class="row">
+
+    <!-- Начало левой колонки сайта со списком авторов -->
+    <aside class="col-12 col-md-3">
+      <ul class="list-group">
+        <li class="list-group-item">Аксентий Поприщин</li>
+        <li class="list-group-item">Робинзон Крузо</li>
+        <li class="list-group-item">Чарли Гордон</li>
+        <li class="list-group-item">Владимир Высоцкий</li>
+      </ul>
+    </aside>
+    <!-- Конец левой колонки сайта -->
+
+    <!-- Начало правой (широкой) колонки сайта -->
+    <section class="col-12 col-md-9">
+
+      <!-- Можно разбить на колонки содержимое любого блока.
+       В этом div.row созданы четыре колонки с анонсами постов -->
+      <div class="row">
+
+      {% for post in posts %}
+
+      {% include 'post/post.html' %}
+
+      {% endfor %}
+
+      
+        <!-- Конец четвёртой колонки -->
+      </div>  <!-- Конец вложенного div.row -->
+    
+
+    </section>  <!-- Конец правой (широкой) колонки сайта -->
+  </div>  <!-- Конец div.row  -->
+</div>  <!-- Конец div.container -->
+{% endblock content %}

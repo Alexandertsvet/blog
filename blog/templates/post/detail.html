@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for post in post %}
+<div class="container">
+    <!-- Начало глобального div.row с двумя колонками: 
+     в левой колонке - имена авторов, в правой - блоки с текстом -->
+    <div class="row">
+  
+      <!-- Начало левой колонки сайта со списком авторов -->
+      <aside class="col-12 col-md-3">
+        <ul class="list-group">
+          <li class="list-group-item">Автор: {{ post.author }}</li>
+          <li class="list-group-item">Заголовок: {{ post.title }}</li>
+          <li class="list-group-item">Дата публикации: {{post.publish|date:"d E Y"}}</li>
+        </ul>
+      </aside>
+      <!-- Конец левой колонки сайта -->
+  
+      <!-- Начало правой (широкой) колонки сайта -->
+      <section class="col-12 col-md-9">
+  
+        <!-- Можно разбить на колонки содержимое любого блока.
+         В этом div.row созданы четыре колонки с анонсами постов -->
+        <div class="row">
+  
+       
+  
+        <div class="card-body">
+            <h6 class="card-subtitle">
+              <p class="date">
+              Опубликовано {{ post.publish|date:"d E Y" }} автором {{ post.author }}.
+              </p>
+            </h6>
+            <p>
+              <h1>{{ post.title}}</h1>
+            </p>
+            <p>
+              {{ post.body|linebreaksbr}}
+            </p>
+            </div>
+        </div>
+  
+        
+  
+        
+          <!-- Конец четвёртой колонки -->
+        </div>  <!-- Конец вложенного div.row -->
+      
+  
+      </section>  <!-- Конец правой (широкой) колонки сайта -->
+    </div>  <!-- Конец div.row  -->
+  </div>  <!-- Конец div.container -->
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+      <header>
+          {% include 'includes/header.html' %}
+      </header>
+      <main>
+        <div id="content">
+          {% block content %}
+            В блоке content отсутствуют данные.
+          {% endblock %}
+        </div>
+      </main>
+        <footer class="border-top text-center py-3">
+          {% include 'includes/footer.html' %}
+        </footer>
+    </body>
+</html>

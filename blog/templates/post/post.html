@@ -1,0 +1,22 @@
+<article class="col-12 col-md-6 col-xl-3">
+    <div class="card">
+      <h5 class="card-header">Автор: {{ post.author }}</h5>
+      <h5 class="card-header">Заголовок: {{ post.title }}</h5>
+      {% if post.group %}
+      <h5><a href="{% url 'post:group_list' post.group.slug %}" class="list-group-item list-group-item-action">Группа:{{ post.group }}</a></h5>
+      {% endif %}
+      <div class="card-body">
+        <h6 class="card-subtitle">
+          <p class="date">
+            Дата публикации:{{ post.publish|date:"d E Y" }}
+          </p>
+        </h6>
+        <p>
+          {{ post.body|truncatewords:30|linebreaksbr}}
+        </p>
+        <div class="d-grid gap-2 mx-auto">
+          <a href="{{post.get_absolute_url}}" class="btn btn-secondary">Читать целиком</a>
+        </div>
+      </div>
+    </div>
+  </article>
